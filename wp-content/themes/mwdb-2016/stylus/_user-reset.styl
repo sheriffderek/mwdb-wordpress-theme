@@ -1,0 +1,27 @@
+
+body //
+	margin 0
+
+// links reset to inherit styles by default
+a //
+	text-decoration: none
+	color: inherit
+	&:hover
+		cursor: pointer // just in case
+
+// cursor reset / stops blinking issues
+html,
+body
+	cursor: default
+input[type="text"], textarea, code
+	cursor: text
+a,
+label,
+button,
+input[type="radio"],
+input[type="submit"],
+input[type="checkbox"]
+	cursor pointer
+button[disabled],
+input[disabled]
+	cursor: default

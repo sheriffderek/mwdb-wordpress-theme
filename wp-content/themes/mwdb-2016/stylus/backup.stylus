@@ -1,0 +1,876 @@
+/*!
+Theme Name: L.A. Takedown 2015
+Theme URI: http://sheriffderek.consulting
+Author: @sheriffderek
+Author URI: http://sheriffderek.consulting
+Description: A custom theme for the band L.A. Takedown
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+.test-it
+	* //
+		// background: rgba(0,255,0,.15)
+
+@charset 'UTF-8'
+
+
+// VARIABLES
+$black 	= #01060e
+$white 	= alpha(white, .95)
+$subdued = alpha($white, .75)
+
+$color      = #00CDD7
+$color-dark = #027e86
+
+$fast 	= .15s
+$faster 	= .75s
+$slow 	= .7s
+
+$pad 	= .6rem
+
+
+$break-point-3 = '(min-width: 600px)'
+$break-point-4 = '(min-width: 1050px)'
+$break-point-5 = '(min-width: 1110px)'
+
+
+
+
+
+// GLOBAL
+html, body
+	height: 100%
+
+html
+	box-sizing: border-box
+	font-family: "fira-sans-2",sans-serif;
+	font-weight: 600
+
+// BOX MODEL
+*, *:before, *:after
+	box-sizing: inherit
+	margin: 0
+
+
+// RESET RESET RESET RESET
+::selection {
+  background: transparent; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: transparent; /* Gecko Browsers */
+}
+
+* //
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+
+// TYPE
+selectable($type)
+	-webkit-user-select: $type
+	-khtml-user-select: $type
+	-moz-user-select: -moz- + ($type)
+	-o-user-select: $type
+	user-select: $type
+
+*:not(textarea, input) //
+	selectable(none)
+
+h1, h2, h3, h4, h5, h6, li, p
+	selectable(text)
+
+// text selection reset
+* //
+	&::-moz-selection,
+	&::selection
+		background: rgba(255,255,255,0) // nessesary ?
+		background: transparent
+	
+
+selection-color($selection-color)
+	&::-moz-selection
+		color: $selection-color
+	&::selection
+		color: $selection-color
+
+// scope specific text selection highlights
+// selection-color($color)
+
+
+
+
+
+// MIXINS
+.hidden
+	hide()
+
+remove-list-styles()
+	list-style: none
+	margin: 0
+	padding: 0
+
+.block-list
+	remove-list-styles()
+	
+visually-hidden()
+	display: block
+	height: 0
+	width: 0
+	overflow: hidden
+	
+.visually-hidden
+	visually-hidden()
+	
+.secret
+	visually-hidden()
+
+balance()
+	float: none
+	clear: none
+	display: inline-block
+	vertical-align: middle
+
+
+
+// ICONS
+[class^="icon-"], [class*=" icon-"]
+	height: 20px
+	width: 20px
+	display: inline-block
+	fill: currentColor
+
+
+
+// FAKE LINKS
+.skip-a, .skip-a-mail, .skip-b
+	display: inline-block
+	cursor: pointer
+	transition: all $fast linear
+	&:hover
+		color: $color-dark
+		transition: all $fast ease-in
+
+.coming-soon, .skip-a, .skip-b //
+	cursor: pointer
+
+
+// GLOBAL GLOBAL GLOBAL
+html //
+	background: $black
+
+body //
+	color: $white
+	letter-spacing: .1em
+	background: $black
+	font-size: 12px
+	line-height: 1.4
+	font-family: "fira-sans-2",sans-serif;
+	font-weight: 600
+	opacity: 0
+
+
+
+.page-template-one-page .header,
+.page-template-one-page .footer
+	visually-hidden() // for future...
+
+
+
+// STRUCTURE
+.container
+	width: 100%
+	float: left
+	.inner-w
+		max-width: 50em
+		margin-right: auto
+		margin-left: auto
+		padding: 0 1em
+	h2 //
+		height: 0
+		overflow: hidden
+
+.block-list
+	block()
+	remove-list-styles()
+
+// IMAGES
+.image-w 
+	img, svg
+		display: block
+		width: 100%
+		height: auto
+
+svg //
+	path, polygon
+		fill: currentColor
+
+/* ======================== */
+
+a //
+	text-decoration: none
+	color: inherit
+
+p //
+	max-width: 700px
+	&:not( :last-of-type )
+		margin-bottom: $pad
+
+
+// ANIMATIONS
+@keyframes background-transition
+	0% //
+		background-color: #e7bd5c
+	33% //
+		background-color: #d2646a
+	66% //
+		background-color: #703085
+	100% //
+		background-color: #3b1c6d
+
+.gif //
+	background-color: $color
+	animation: background-transition 2700s ease infinite
+	background-image: url('images/8bit.gif')
+	background-size: cover
+	background-position: center center
+	background-blend-mode: multiply
+	.sunset-bio
+		diplay: none
+		width: 0
+		height: 0
+		overflow: hidden
+		
+
+
+
+
+
+
+
+
+
+
+// COMPONENTS COMPONENTS COMPONENTS
+
+.logo
+	position: fixed
+	display: block
+	width: 200px
+	color: $white
+	display: none
+	// animation: change 2700s infinite
+	// border: 1px solid lightblue
+	@media $break-point-3
+		width: 230px
+	&:hover
+		cursor: pointer
+	.la //
+		color: $color
+
+
+.helper //
+	text-align: center
+	width: 100%
+	text-transform: uppercase
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	margin-top: 75px
+	padding-right: 31px
+	color: $subdued
+
+
+
+
+.freeway-overpass
+	//
+	.logo //
+		//
+		&.gradient
+			//
+			svg //
+				//
+				.la //
+					color: $la-takedown-light
+					polygon
+						fill: url('#la_gradient');
+						/* filter: url(#glow) */
+				.takedown
+					color: $la-takedown-dark
+					path
+						fill: url('#takedown_gradient');
+
+
+
+
+// loading cover
+.cover
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background: $black
+	z-index: 200
+	opacity: .9
+
+
+// MENU MENU
+.main-menu
+	position: relative
+	position: fixed
+	z-index: 300
+	block()
+	.menu //
+		block()
+		display: none
+	.link //
+		text-transform: uppercase
+		display: inline-block
+		padding: .2em .3rem
+		transition: color $faster linear
+		position: static
+		&:hover
+			transition: color $faster linear
+			cursor: pointer
+		&.current-menu-item
+			color: $color-dark
+		@media $break-point-5
+			&.current-menu-item
+				color: $white
+
+.view // set the 'pages' or 'views' to hidden...
+	display: none
+
+
+
+
+.controls //
+	z-index: 400
+	position: fixed
+	right: 0
+	bottom: 0
+	display: none
+	color: alpha($white, .85)
+	padding: .5rem 1rem
+	.icon //
+		cursor: pointer
+		display: none
+		
+		&:active
+			color: $color-dark
+		.icon-x
+			width: 30px
+			height: 30px
+		
+			
+
+.no-touchevents
+	.controls
+		transition: $slow all linear
+
+		&:hover
+			transition: $fast all ease-in
+			color: $color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// when things are busy.....
+.busy //
+	//
+	.main-menu
+		//
+		.menu
+		//
+		.link
+			//
+			&:hover
+				cursor: none
+
+
+
+
+.top-down.heater-on
+	// border: 2px solid purple
+
+
+
+
+
+// .main-menu
+// 	block()
+
+
+.logo //
+	left: 50%
+
+// PORTRAIT SPECIFIC PORTRAIT  PORTRAIT  PORTRAIT 
+@media (orientation: portrait)
+	//
+	.logo //
+		position: fixed
+		top: 50%
+		transform: translate(-50%, -50%)
+		height: auto
+		bottom: auto
+	.main-menu
+		position: relative
+		position: fixed
+		width: 90%
+		float: left
+		top: 105px
+		left: 18px
+		color: white
+		block()
+	.menu //
+		position: static
+		> li //
+			display: block
+			float: left
+			color: white
+			&.what-link
+				clear: left
+
+	.link //
+		color: white
+		text-shadow: 1px 1px 2px rgba(0,0,0,.5)
+		&.current-menu-item
+			color: $color-dark
+			
+
+	.view //
+		position: absolute
+		top: 100%
+		left: 0
+		color: white
+		text-shadow: 1px 1px 2px rgba(0,0,0,.5)
+	
+	.type-in
+		padding: .3rem
+		margin-bottom: 1rem
+		min-width: auto
+		max-width: auto
+		width: auto
+		border-top: 1px solid rgba(0,0,0,.2)
+		padding-top: 1rem
+
+			
+	.top-down.heater-on
+		.logo
+			top: 10px
+			left: 0
+			// border: 1px solid blue
+			height: auto
+			bottom: auto
+
+
+
+
+// PORTRAIT SPECIFIC PORTRAIT  PORTRAIT  PORTRAIT 
+@media (orientation: portrait) and (min-width: 550px)
+
+	.main-menu
+		.menu //
+			> li //
+				&.what-link
+					clear: none
+
+
+
+@media (orientation: landscape)
+
+	.logo //
+		bottom: 50%
+		transform: translateX(-50%) translateY(50%)
+		height: auto
+		top: auto
+	.main-menu
+		position: fixed
+		bottom: 1rem
+		left: 230px
+	.menu //
+		position: relative
+		> li //
+			width: auto
+			display: block
+			float: left
+			margin-right: 8px
+			&.what-link
+				clear: left
+			section
+				position: absolute
+				bottom: calc(100% + 10px)
+				left: 5px
+				width: 100%
+				max-width: 600px
+				min-width: 400px
+	.type-in
+		width: calc(100% - 150px)
+	@media $break-point-3
+		//
+		.type-in
+			width: auto
+	@media $break-point-4
+		//
+		.menu //
+			position: static
+			margin-left: 2.5rem
+			> li //
+				margin-right: 2.5rem
+				position: relative
+
+	@media $break-point-5
+		.logo
+			margin-left: 20px
+		.menu //
+			margin-left: 3.5rem
+			> li //
+				margin-right: 3.5rem
+				
+	.top-down.heater-on
+		.logo
+			bottom: 16px
+			left: 16px
+			height: auto
+			top: auto
+			// border: 2px solid red
+				
+
+@media (orientation: landscape) and (min-width: 840px)
+
+	.menu //
+		> li //
+			&.what-link
+				clear: none
+
+				
+
+
+.fade-overlay
+	position: fixed
+	bottom: 0
+	left: 0
+	width: 100%
+	height: 50%
+	z-index: 9
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+	background: linear-gradient( to top, $black, transparent);
+
+h4 //
+	font-size: 20px
+
+
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ABOUT ABOUT ABOUT
+
+.about
+	p:nth-of-type(2)
+		color: $subdued
+
+
+
+// UPCOMING UPCOMING UPCOMING
+
+.upcoming
+	//
+	.event-list
+		//
+	.event
+		&:not( :last-of-type )
+			margin-bottom: $pad
+	.details-list
+		float: left
+		// border: 2px solid blue
+		overflow: hidden
+		.date //
+			// color: $subdued
+		.title
+			color: $subdued
+
+	.more-info
+		float: left
+		clear: left
+		margin-top: .3rem
+		background: $color-dark
+		border: 0
+		border-radius: 5px
+		cursor: pointer
+
+
+
+// CONTACT CONTACT CONTACT
+
+// email... ?
+
+
+.mailinglist-trigger
+	cursor: pointer
+	
+.email-sign-up-w
+	display: none
+
+#mc_embed_signup
+	margin-bottom: 1rem
+	label
+		display: block
+		margin-bottom: .3rem
+	.input-w
+		balance()
+	input[type='email']
+		font-size: 13px
+		padding: .3rem .6rem
+		border: 0
+		border-radius: 3px
+		min-width: 250px
+		background: rgba(255,255,255,1)
+		color: darken($color, 40%)
+		letter-spacing: .06em
+		&:focus
+			outline: 0
+		@media (max-width: 345px)
+			margin-bottom: 10px
+	.button
+		balance()
+		font-size: 13px
+		padding: .3rem .6rem
+		background: $color
+		border: 0
+		border-radius: 3px
+		color: darken($color, 40%)
+		cursor: pointer
+		-webkit-appearance: none
+		min-width: 200px
+		&:focus
+			outline: 0
+
+.mail-talk
+	color: $subdued
+
+.contact
+	//
+	.social-list
+		margin-top: 6px
+		margin-left: -2px
+		color: $subdued
+		> * //
+			balance()
+			
+
+
+// WHAT IS THIS WHAT WHAT
+
+.author-w
+	color: $subdued
+
+
+
+// BUY MUSIC
+
+.buy-links
+	span //
+		margin-right: $pad
+		text-transform: uppercase
+
+.record-cover
+	max-width: 120px
+	margin-bottom: 5px
+	transition: all 2s linear
+	box-shadow: 0 0 20px 2px rgba(255,255,255,.2)
+	transform: ( scale(1) rotate(0) translate(10, 0) )
+	&:hover
+		box-shadow: 0 0 30px 2px $color
+		transition: all $fast ease-in
+		// transform: ( scale(1) rotate(0) translate(10px,0) )
+	@media (min-width: 600px)
+		transform: ( scale(1) rotate(0) translate(0, 0) )
+
+
+
+
+.share
+	.social-list
+		position: relative
+		left: -2px
+		.icon-x
+			width: 30px
+			height: 30px
+
+
+
+@media (min-width: 1200px)
+	.tempo
+		display: none
+
+
+
+
+center-center()
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+
+body.page-template-record-spotlight
+	height: 100%
+	background: #d5d5d5
+	opacity: 1!important
+	width: 100%
+	float: left
+	overflow: auto
+	.center-center
+		width: 100%
+		max-width: 600px
+		padding: 1rem
+		@media (min-width: 600px) and (min-height: 630px)
+			center-center()
+	.cover
+		display: none
+	.text-w
+		color: $black
+		padding: .3rem
+	h1, h2, h3
+		font-weight: normal
+	.social-list
+		li //
+			balance()
+	footer, header
+		height: 0
+		overflow: hidden
+
+
+
+// .progress-thing
+// 	position: fixed
+// 	bottom: 5px
+// 	left: 0
+// 	width: 100%
+// 	height: 5px
+// 	z-index: 199
+// 	display: none
+// 	.progress-bar
+// 		width: 40%
+// 		height: 100%
+// 		background: $color
+
+
+scrollable()
+	overflow-y: scroll // has to be scroll, not auto
+	-webkit-overflow-scrolling: touch
+	border: 1px solid red
+
+.social-list
+	li //
+		balance()
+
+
+@media (max-width: 700px) and (max-height: 700px)
+
+	.top-down.heater-on
+		.logo
+			left: 0
+			
+
+	.logo //
+		center-center()
+
+	.link
+		display: none
+		visibility: hidden
+		
+	html, body
+		overflow: hidden
+		height: 100%
+		
+	body //
+		position: relative
+		
+	.main-menu
+		position: static
+	.touch
+		//
+		.view-controls
+			scrollable()
+
+	.view-controls
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		border: 2px solid red
+		
+		-webkit-mask-image: -webkit-linear-gradient(
+			rgba(0,0,0,0) 0%,
+			rgba(0,0,0,0) 20%,
+			rgba(0,0,0,1) 36%,
+			rgba(0,0,0,1) 80%, 
+			rgba(0,0,0,0) 100%);
+			
+		.view
+			display: block!important
+			width: 100%
+			float: left
+			position: static
+			h2 //
+				height: auto
+				overflow: auto
+			.type-in
+				padding: 0
+
+
+
+
+
+
+
+
+

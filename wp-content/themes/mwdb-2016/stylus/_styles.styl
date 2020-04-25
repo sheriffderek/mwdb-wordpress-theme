@@ -1,0 +1,241 @@
+
+html, body
+	// background: red
+	background: white
+	height: 100%
+
+body
+	// background: $black
+	font-family: $base-font-stack // see _type.styl
+	font-weight: 300
+
+p //
+	font-size: 15px
+	line-height: 1.4
+	letter-spacing: .015em
+	max-width: 740px
+	color: $gray
+	&:not(:last-of-type)
+		margin-bottom: $pad*1.5
+	@media $break-point-1
+		font-size: 14px
+
+ul //
+	list-style: none
+	margin: 0
+	padding: 0
+
+figure
+	margin: 0
+
+.container
+	// background: white
+	float: none
+	.inner-w
+		max-width: 100%
+
+
+	
+		
+header.header, footer.footer
+	// background: white
+	.inner-w
+		padding: $pad
+	.logo
+		max-width: 200px
+		
+	@media $break-point-1
+		.logo
+			margin-right: $pad
+
+
+header.header
+	.inner-w
+		padding-top: $pad*3
+	@media $break-point-2
+		padding-bottom: $pad*2
+
+.main-menu
+	//
+	.menu
+		transform: translate( -($pad), 0 )
+	li.current-menu-item
+		a //
+			color: $color
+	a //
+		display: block
+		padding: $pad*.5 $pad
+		span
+			border-bottom: 	1px solid transparent
+		&:active
+			span
+				border-bottom: 1px solid $black
+				
+	@media $break-point-1
+		//
+		.menu
+			transform: translate( 0, ($pad*2) )
+		
+	
+.text-w
+	padding: $pad
+
+
+.project-list, .detail-list
+	// margin-bottom: $pad*3
+
+
+.landing
+	//
+	h1 //
+		visually-hidden()
+	
+.carousel
+	z-index: 0
+	.cell
+		background-size: cover
+		background-repeat: no-repeat
+
+.about
+	//
+	h1 //
+		visually-hidden()
+	.button
+		margin-top: $pad*4
+
+.fluff-w
+	background-size: cover
+	background-position: left center
+	min-height: 300px
+
+.work
+	//
+	h1 //
+		visually-hidden()
+	.text-w
+		padding: $pad*.5 $pad
+	h2
+		font-size: 14px
+		color: $gray
+	.project
+		margin-bottom: $pad*3
+	@media $break-point-3
+		//
+		.project
+			// margin-bottom: $pad
+			// margin-right: $pad
+			margin-bottom: 0
+
+
+.detail-list
+	.detail
+		margin-bottom: $pad
+	.info
+		h1
+			color: $black
+			font-size: 18px
+		h2
+			color: $gray
+			font-size: 15px
+		.description
+			margin-top: $pad*2
+		.credits
+			margin-top: $pad*3
+			color: $gray
+			h3, h4
+				font-size: 12px
+			h3
+				margin-bottom: $pad*.5
+			h4
+				//
+	.other-projects
+		.text-w
+			margin-bottom: $pad*6
+		h2
+			font-size: 18px
+			color: $black
+			margin-bottom: $pad*.5
+		a //
+			display: block
+			padding: $pad*.25 0
+		h3
+			color: $gray
+			font-size: 15px
+	
+	@media $break-point-3
+		.detail
+			//
+		.info
+			h1
+				font-size: 26px
+
+.contact
+	//
+
+footer.footer
+	padding-bottom: $pad*3
+
+
+
+.page-template-about, .page-template-landing
+	footer.footer
+		display: none
+
+
+.loading
+	block-size(44px)
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	display: none
+
+section, footer
+	transition: .5s
+
+.re-sizing
+	section, footer
+		transition: 0s
+		opacity: 0
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  background-color: $gray;
+  // background-image: url('images/square.jpg')
+	background-size: cover
+	background-position: center center
+  // margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+
+.fluff-w
+	//
+
+.fluff
+	//
+	background-size: cover
+	background-position: center center
+	img
+		opacity: 0

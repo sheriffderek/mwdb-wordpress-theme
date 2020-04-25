@@ -1,0 +1,13 @@
+
+// simple widths
+split-in($number-of-parts)
+	width: (1 / $number-of-parts * 100%)
+
+// grid
+grid-in($parts = 1, $gutter = 2%)
+	> *  //
+		float: left
+		width: (  (100%/$parts) -  (  ( ($parts - 1) * $gutter )  / ($parts)   ) )
+		margin-right: $gutter
+		&:nth-of-type( {$parts}n + {$parts} )
+			margin-right: 0

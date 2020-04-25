@@ -1,0 +1,48 @@
+
+/*
+adds a little triangle to show you
+what $break-point you're at
+
+you must add:
+
+<div class='media-size-helper'></div>
+
+just before your </body> in your html
+
+*/
+
+$no = transparent
+.media-size-helper
+	fixed()
+	right: 0
+	bottom: 0
+	// some crazy triangle madness
+	width: 0
+	height: 0
+	border-style: solid
+	border-width: 0 0 50px 50px
+	border-color: $no $no rgba(20,20,20,.1) $no
+	&:after
+		fixed()
+		right: $pad
+		bottom: ($pad/2)
+		content: '0'
+		color $black
+		@media $break-point-1
+			content: '1'
+		@media $break-point-2
+			content: '2'
+		@media $break-point-3
+			content: '3'
+		@media $break-point-4
+			content: '4'
+		@media $break-point-5
+			content: '5'
+		@media $break-point-6
+			content: '6'
+		@media $break-point-7
+			content: '7'
+		@media $break-point-8
+			content: '8'
+		@media $break-point-9
+			content: '9'

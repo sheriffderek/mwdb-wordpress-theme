@@ -1,0 +1,150 @@
+
+// type reset
+h1, h2, h3, h4, h5, h6, li, p
+	margin: 0
+	padding: 0
+	font-weight: 400
+
+selectable($type)
+	-webkit-user-select: $type
+	-khtml-user-select: $type
+	-moz-user-select: -moz- + ($type)
+	-o-user-select: $type
+	user-select: $type
+
+*:not('textarea, input') //
+	selectable(none)
+
+h1, h2, h3, h4, h5, h6, li, p
+	selectable(text)
+
+// text selection reset
+* //
+	&::-moz-selection,
+	&::selection
+		background: rgba(255,255,255,0) // nessesary ?
+		background: transparent
+
+selection-color($selection-color)
+	&::-moz-selection
+		color: $selection-color
+	&::selection
+		color: $selection-color
+
+// scope specific text selection highlights
+selection-color($highlight)
+
+// font stack
+$heading-font-stack	= 'Arial', sans-serif
+$base-font-stack 		= 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
+
+// simplified font-size syntax
+size($font-size)
+	font-size: ($font-size)px
+
+// type size patterns
+extra-small-type()
+	copy()
+	size(10)
+	line-height: 1.4
+	color: $gray
+	@media $break-point-2
+		size(11)
+
+small-type()
+	copy()
+	size(13)
+	line-height: 1.4
+	color: $gray-dark
+	@media $break-point-2
+		size(14)
+
+standard-type()
+	copy()
+	size(16)
+	line-height: 1.4
+	color $black
+	@media $break-point-2
+		size(17)
+
+medium-type()
+	size(19)
+	line-height: 1.4
+	color: $color
+	font-weight: bold
+	@media $break-point-2
+		size(20)
+
+large-type()
+	size(24)
+	line-height: 1.4
+	color: $alternate
+	@media $break-point-2
+		size(26)
+
+extra-large-type()
+	font-family: $heading-font
+	size(34)
+	line-height: 1.4
+	color: $highlight
+	@media $break-point-2
+		size(38)
+
+// case
+lowercase()
+	text-transform: lowercase
+	
+capitalize()
+	text-transform: sentencecase
+	
+uppercase()
+	text-transform: uppercase
+
+
+body //
+	// font-family: $open-sans
+
+// style ALL editorial type here / within some scoped class...
+.editorial, .editorial-example
+	//
+	h1 //
+		extra-large-type()
+		color: $black
+		margin-bottom: $padding
+
+	h2 //
+		large-type()
+		color $color
+		margin-bottom: $padding
+	p + h2
+		margin-top: $padding*3
+
+	h3 //
+		medium-type()
+		color: $highlight
+		margin-bottom: $padding
+	p + h3
+		margin-top: $padding*3
+
+	h4 //
+		medium-type()
+		margin-bottom: $padding
+	p + h4
+		margin-top: $padding*3
+
+	h5 //
+		standard-type()
+		font-weight: bold
+		margin-bottom: $padding
+
+	p + h5
+		margin-top: $padding*3
+
+	p //
+		standard-type()
+		margin-bottom: $padding
+
+	ul, ol
+		padding: $padding 0 $padding $padding*1.7
+		li //
+			margin-bottom $padding*.5

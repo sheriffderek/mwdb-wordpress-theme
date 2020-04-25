@@ -1,0 +1,184 @@
+
+// basic example structure
+$colorz = rgba(0,0,0,.04)
+$widthz = 2px
+$stylez = dotted
+
+// border(colour)
+// 	border $widthz $styles colour
+
+.basic
+	.site-title
+		large-icons()
+		* //
+			balance()
+
+basic-example()
+	padding: $pad
+	background: $colorz
+
+.container.basic-example
+	basic-example()
+	border: 1px $stylez $color
+	span //
+		border: 1px $stylez $color
+		color: $color
+	.inner-w
+		basic-example()
+		margin-: ($pad*2)
+		border: 1px $stylez $highlight
+		span //
+			border: 1px $stylez $highlight
+			color: $highlight
+	.block-list
+		basic-example()
+		border: 1px $stylez $black
+		span //
+			border: 1px $stylez $black
+			color: $black
+	.block
+		basic-example()
+		margin-bottom: ($pad*5)
+		border: 1px $stylez $alternate
+		span //
+			border: 1px $stylez $alternate
+			color: $alternate
+	.image-w
+		relative()
+		basic-example()
+		padding: 0
+		margin-bottom: ($pad*2)
+		border: 1px $stylez $color
+		span //
+			absolute()
+			top: 0
+			left: ($pad/2)
+			transform: translate( $pad, -50% )
+			border: 1px $stylez $color
+			color: $color
+	.text-w
+		basic-example()
+		border: 1px $stylez $color
+		span //
+			border: 1px $stylez $color
+			color: $color
+	span //
+		display: inline-block
+		transform: translate( ($pad/2), -83%)
+		background: $gray-lighter
+		font-size: 12px
+		padding: .5rem
+	.column
+		//
+		@media $break-point-2
+			&:nth-of-type(1)
+				width: 64%
+				float: left
+			&:nth-of-type(2)
+				width: 34%
+				float: right
+
+// swatches
+.basic-swatches
+	padding-bottom: 30px
+	div //
+		width: 100%
+		float: left
+		padding: 1rem
+		text-shadow: 0 0 2px alpha(white, .5)
+		transition: .3s padding ease-in
+
+		@media $break-point-1
+			// padding: 1rem
+			// split-in(3)
+			
+		@media $break-point-2
+			split-in(3)
+			padding: 2rem
+
+		@media $break-point-3
+			split-in(6)
+
+		&.black
+			background: $black
+		&.white
+			background: $white
+
+		&.gray-lighter
+			background: $gray-lighter
+		&.gray-light
+			background: $gray-light
+		&.gray
+			background: $gray
+		&.gray-dark
+			background: $gray-dark
+		&.gray-darker
+			background: $gray-darker
+
+		&.color-light
+			background: $color-light
+		&.color
+			background: $color
+		&.color-dark
+			background: $color-dark
+		&.color-darker
+			background: $color-darker
+		&.color-darkerer
+			background: $color-darkerer
+
+		&.highlight-light
+			background: $highlight-light
+		&.highlight
+			background: $highlight
+		&.highlight-dark
+			background: $highlight-dark
+		
+		&.alternate-light
+			background: $alternate-light
+		&.alternate
+			background: $alternate
+		&.alternate-dark
+			background: $alternate-dark
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

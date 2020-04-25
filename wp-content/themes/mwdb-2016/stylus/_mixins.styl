@@ -1,0 +1,124 @@
+
+// set temp wireframes true/false
+wire-frames(wire-frames-on = false)
+	if wire-frames-on
+		border: 1px solid rgba(0,0,0,.05)
+		padding: ($padding/2)
+		.container
+			margin-bottom: $padding
+			border: 1px solid rgba(0,0,0,.1)
+
+* // set temp frames to everything
+	wire-frames()
+
+// simplified position syntax
+static()
+	position: static
+	
+relative()
+	position: relative
+	
+absolute()
+	position: absolute
+
+fixed()
+	position: fixed
+
+
+flex()
+  display: flex
+
+column()
+  flex-direction: column
+
+row()
+  flex-direction: row
+
+
+
+// vertically align buddy elements
+balance()
+	float: none // to be *sure there is no float
+	display: inline-block
+	vertical-align: middle
+
+balance-buddy($position, $height = 0)
+  //
+	if $position == before
+		&:before
+			balance()
+			content: ''
+			width: 0
+			height: $height
+			overflow: hidden
+	else if $position == after
+		&:after
+			balance()
+			content: ''
+			width: 0
+			height: $height
+			overflow: hidden
+	else //
+		//
+
+visually-hidden()
+	display: block
+	width: 0
+	height: 0
+	overflow: hidden
+
+hide()
+  	display: none
+
+show()
+	display: block
+
+
+fixed-cover()
+	fixed()
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+absolute-cover()
+	absolute()
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+// absolutly center
+center-center()
+	float: none
+	absolute()
+	margin: auto
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+
+// simple widths
+split-in($number-of-parts)
+	width: (1 / $number-of-parts * 100%)
+
+
+block-size(w, h = w)
+	width: w
+	height: h
+
+// minimum area for "tap" interaction
+$tap-size = 44px
+tap-area()
+	min-width: $tap-size
+	min-height: $tap-size
+	@media $break-point-2
+		min-width: auto
+		min-height: auto
+		
+scrollable()
+	overflow-y: scroll // has to be scroll, not auto
+	-webkit-overflow-scrolling: touch

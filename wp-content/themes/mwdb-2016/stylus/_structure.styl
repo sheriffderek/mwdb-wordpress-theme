@@ -1,0 +1,263 @@
+
+b($flag, $size = 0rem)
+  border: $size solid alpha($flag, .3)
+  // padding: $size
+
+
+horizontal-scroll-setup()
+  width: 100%
+  max-width: 100%
+  overflow: auto
+  overflow-x: scroll
+  overflow-y: hidden
+  white-space: nowrap
+  -webkit-overflow-scrolling: touch
+
+flex()
+  display: flex
+
+column()
+  flex-direction: column
+
+row()
+  flex-direction: row
+
+html, body
+  // height: 100%
+  @media $break-point-3
+    height: 100%
+
+// structure
+body
+  // flex()
+  // column()
+  // heignt: 100vh // not sure why this doesn't work here
+  @media $break-point-3
+    // height: 100vh
+    // flex()
+    // column()
+    header.header
+      // flex-grow: 0
+    .content
+      // flex-grow: 1
+
+.text-w
+  b(red)
+
+header.header, footer.footer
+  b(red)
+  .inner-w
+    b(blue)
+    flex()
+    column()
+  .logo
+    b(green)
+  .main-menu
+    b(red)
+  @media $break-point-1
+    .inner-w
+      row()
+    .main-menu
+      //
+
+header.header
+  position: relative
+  z-index: 5
+  background: transparent
+
+footer.footer
+  @media $break-point-1
+    .inner-w
+      //
+    .logo
+      order: 1
+    .main-menu
+      order: 2
+  @media $break-point-3
+    display: none
+
+.menu
+  b(orange)
+  flex()
+  row()
+  display: flex
+  flex-direction: row
+  color: $gray
+  font-size: 15px
+  li //
+    b(blue)
+
+
+.single-project
+  header.header
+    //
+    @media $break-point-3
+      position: fixed
+      top: 0
+      left: 0
+
+.landing
+  //
+.carousel
+  b(red)
+  fixed()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 100%
+  // height: 100vh
+  z-index: -1
+  .cell
+    b(blue)
+    width: 100%
+    height: 100vh
+    
+.flickity-page-dots
+  bottom: $pad*2
+
+
+
+.about
+  //
+
+.fluff-w
+  b(black)
+  // min-height: 200px
+  flex-grow: 1
+
+
+
+
+.work
+  b(red)
+  .inner-w
+    b(green)
+  .project-list
+    b(purple)
+  .project
+    b(blue)
+    a //
+      b(lime)
+    .image-w
+      b(red)
+    .text-w
+      b(yellow)
+
+
+
+
+
+.work
+  //
+  .inner-w
+    //
+  .project-list
+    //
+  .project
+    //
+    a //
+      display: block
+    .image-w
+      //
+    .text-w
+      display: block
+  @media $break-point-1
+    //
+    .project-list
+      max-width: 90%
+  @media $break-point-2
+    .project-list
+      max-width: 80%
+  @media $break-point-3
+    .project-list
+      max-width: 100%
+      // border: 1px solid red
+      clear-fix()
+    .project
+      width: (1/2)*100%
+      float: left
+      margin: 0
+      .text-w
+        display: none
+      // border: 1px solid red
+  @media $break-point-4
+    .project
+      // width: (1/4)*100%
+      
+
+
+
+
+.spotlight
+  flex()
+  b(red)
+  .inner-w
+    b(green)
+    flex()
+    column()
+  .detail-list
+    b(purple)
+    flex()
+    column()
+  .detail
+    b(blue)
+    flex()
+    column()
+  .image-w
+    b(red)
+
+  @media $break-point-1
+    //
+    .detail-list
+      max-width: 90%
+  @media $break-point-2
+    .detail-list
+      max-width: 80%
+  @media $break-point-3
+    //
+    .inner-w
+      //
+      // border: 20px solid red
+        
+
+    .detail-list
+      width: 60%
+      position: absolute
+      right: 0
+      top: 0
+      // border: 1px solid red
+      // row()
+    .detail
+      margin-bottom: $pad
+
+    .info
+      position: fixed
+      top: 100px
+      left: 0
+      width: 36%
+      .text-w
+        // width: 540px
+    .other-projects
+      .text-w
+        width: 300px
+      
+
+
+
+body.page-template-about
+  //
+  @media $break-point-2
+    display: flex
+    flex-direction: column
+    height: 100vh
+    .fluff-w
+      flex-grow: 1
+    
+body.page-template-work
+  //
+  @media $break-point-3
+    height: 100vh
+
+

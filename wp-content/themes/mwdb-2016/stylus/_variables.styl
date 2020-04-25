@@ -1,0 +1,41 @@
+
+// colors
+$black = #040506
+$black = #271817
+$white = #f1fdfe
+
+// shade
+shade($color, $percent)
+	mix($black, $color, $percent)
+
+// tint
+tint($color, $percent)
+	mix($white, $color, $percent)
+
+// variations
+$gray-light  = #ecf0f1
+$gray        = alpha($black, .5)
+$gray-dark   = #73777a
+$gray-darker = #222324
+
+$color          = lightblue
+$color-dark     = shade($color, 20%)
+$color-darker   = #30353d
+$color-darkerer = #232934
+
+$highlight       = #7e9b84
+$highlight-light = tint($highlight, 50%)
+$highlight-dark  = shade($highlight, 25%)
+
+$alternate       = #ec1828
+$alternate-light = tint($alternate, 50%)   
+$alternate-dark  = shade($alternate, 25%)
+
+// layout
+$padding = 0.6rem
+$pad     = $padding
+$corner  = 5px
+
+$gutter    = $pad
+
+$invisible = transparent
