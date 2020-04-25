@@ -24,5 +24,5 @@
 !/wp-content/themes
 /wp-content/themes/*
 
-!/wp-content/themes/mwdb-2020
+!/wp-content/themes/mwdb-2016
 node_modules
